@@ -1,4 +1,4 @@
-import mongoose from ('mongoose');
+import mongoose from 'mongoose';
 
 const commentSchema = new mongoose.Schema({
     user: {
@@ -38,14 +38,14 @@ const postSchema = new mongoose.Schema({
         }
     ],
     comments: [
-        commentSchema
+        commentSchema,
     ],
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
-    categories: {
+    category: {
         type: String
     },
     tags: [
@@ -55,4 +55,4 @@ const postSchema = new mongoose.Schema({
     ],
 }, { timestamps: true });
 
-module.exports = mongoose.model('Post', postSchema);
+export const Post = mongoose.model('Post', postSchema);
